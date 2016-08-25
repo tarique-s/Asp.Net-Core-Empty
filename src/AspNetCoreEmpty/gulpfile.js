@@ -14,12 +14,15 @@ var paths = {
 }
 
 paths.bootstrapCss = "./bower_components/bootstrap/dist/css/bootstrap.css";
+paths.bootstrapThemeCss = "./bower_components/bootstrap/dist/css/bootstrap-theme.css";
 
 paths.bootstrapJs = "./bower_components/bootstrap/dist/js/bootstrap.js";
 paths.jqueryJs = "./bower_components/jquery/dist/jquery.js";
 
 paths.cssDest = paths.webroot + "css";
 paths.jsDest = paths.webroot + "js";
+
+paths.siteCss = paths.cssDest + "/site.css";
 
 gulp.task("min:js", function () {
     return gulp.src([paths.jqueryJs, paths.bootstrapJs])
@@ -31,6 +34,18 @@ gulp.task("min:js", function () {
 gulp.task("copy:js", function () {
     return gulp.src([paths.jqueryJs, paths.bootstrapJs])
             .pipe(gulp.dest(paths.jsDest));
+});
+
+gulp.task("min:css", function () {
+    return gulp.src([paths.bootstrapCss, paths.bootstrapThemeCss, paths.siteCss])
+            .pipe(concat(paths.cssDest + "/min/bootstrap.min.css"))
+            .pipe(cssmin())
+            .pipe(gulp.dest("."));
+})
+
+gulp.task("copy:css", function () {
+    return gulp.src([paths.bootstrapCss, paths.bootstrapThemeCss])
+            .pipe(gulp.dest(paths.cssDest));
 });
 
 

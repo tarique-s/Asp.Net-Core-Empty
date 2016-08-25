@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <environment names="Development">
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/bootstrap-theme.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+</head>
+<body>
+    <div id="page">
+        <header class="container">
+            <div id="menu" class="navbar navbar-default">
+                <div id="logo">
+                    <a href=".">Tarique S</a>
+                </div>
+            </div>
+
+        </header>
+        
+        <seciton id="body" class="container">
+
+            @RenderBody()
+
+        </seciton>
+
+        <footer class="container">
+
+        </footer>
+    </div>
+
+    <environment names="Development">
+        <script src="~/js/jquery.js"></script>
+        <script src="~/js/bootstrap.js"></script>
+    </environment>
+</body>
+</html>

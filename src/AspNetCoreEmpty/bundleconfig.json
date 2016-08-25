@@ -1,0 +1,19 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+   
+    {
+        "outputFileName": "wwwroot/js/min/site.min.js",
+        "inputFiles": [
+            "wwwroot/js/bootstrap.js",
+            "wwwroot/js/jquery.js"
+        ],
+        // Optionally specify minification options
+        "minify": {
+            "enabled": true,
+            "renameLocals": true
+        },
+        // Optinally generate .map file
+        "sourceMap": false
+    }
+]
